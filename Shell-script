@@ -1,0 +1,27 @@
+#!/bin/bash
+ #######################################################################
+ #Author       - Pranjal
+ #Date         - 12-03-24
+ #Description  - This shellscript will output the resource running at AWS console
+ #Version      - v1
+ #######################################################################
+
+echo " EC2 InstanceId :"
+aws ec2 describe-instances|jq ".Reservations[].Instances[].InstanceId "
+
+echo "-------------------------------------------------------------------------------------------"
+
+echo " AWS S3 Buckets:"
+aws s3 ls
+
+echo "-------------------------------------------------------------------------------------------"
+
+echo " AWS IAM Users:"
+aws iam list-users
+
+echo "-------------------------------------------------------------------------------------------"
+
+echo " AWS RDB dbInstances:"
+aws rds describe-db-instances
+
+echo "-------------------------------------------------------------------------------------------"
